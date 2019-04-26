@@ -97,7 +97,7 @@
                     <p style="color:red;" id="emailAlert"></p>
                 </div>
 				<input type="text" name="prix"  id="prixLivraison2" />
-					<input type="text" name="date" id="date"  value="" />
+					<input type="text" name="date" id="test"  value="" />
                 <div class="form-group">
                     <label class="control-label mb-10" >Prix de livraison:</label>
                     <label class="control-label mb-10" id="prixLivraison"  style="color:green;" value=""></label>

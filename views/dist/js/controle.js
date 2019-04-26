@@ -1,10 +1,7 @@
- function script(){
-  
+
 var d = new Date();
 var todaysDate= d.getMonth()+1 +" / "+ d.getDate()+" / "+ d.getFullYear();
-document.getElementById("date").value = "todaysDate";
-
-}
+document.getElementById("test").value = "todaysDate";
 
 
 function controlFirstName(champ){

@@ -29,8 +29,13 @@ if(isset($_FILES['image'])){
 if(isset($_REQUEST['nom']) and isset($_REQUEST['price']) and isset($_REQUEST['description'])  and isset($_REQUEST['category']) and isset($_REQUEST['type_animaux'])){
    //traitement des données
    //1-instance
+   if(empty($_REQUEST['nom']) || empty($_REQUEST['price']) || empty($_REQUEST['description'])  || empty($_REQUEST['category']) || empty($_REQUEST['type_animaux'])){
   
+  
+      header( "Location: product.php?error" );
+   }
 
+   else{
    if($_REQUEST['id'] > 0){
       $p=new produit($_REQUEST['nom'],$_REQUEST['price'],$_REQUEST['description'],$_FILES['image']['name'],$_REQUEST['category'],$_REQUEST['type_animaux']);
    //2-instance
@@ -47,7 +52,7 @@ if(isset($_REQUEST['nom']) and isset($_REQUEST['price']) and isset($_REQUEST['de
    $pcore->ajoutProduit($p);
    }
    header( "Location: product.php" );
-}
+}}
 else if(isset($_REQUEST['delete'])){
    $pcore=new produitC();
    $pcore->supprimerProduit($_REQUEST['delete']);

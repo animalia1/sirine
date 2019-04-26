@@ -2,8 +2,11 @@
 include '../../entities/category.php';
 include '../../core/categoryC.php';
 if(isset($_POST['cat_title']) and isset($_POST['type_animaux'])){
-
-
+   if(empty($_POST['cat_title']) || empty($_POST['type_animaux'])){
+      
+      header( "Location: add-category.php?error" );
+   }
+else{
    if($_REQUEST['id'] > 0){
       $c=new category($_POST['cat_title'],$_POST['type_animaux']);
       $ccore=new categoryC();
@@ -18,7 +21,7 @@ if(isset($_POST['cat_title']) and isset($_POST['type_animaux'])){
       header( "Location: add-category.php" );
    }
    
-}
+}}
 else if(isset($_REQUEST['delete'])){
    $pcore=new categoryC();
    $pcore->supprimerCategory($_REQUEST['delete']);
